@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <assert.h>
 
-bool IsTemperatureOK(float temperature){
-  bool TemperatureOK;
+boolean IsTemperatureOK(float temperature){
+  boolean TemperatureOK;
   char* TempertaureHIGHORLOW;
   if(temperature < 0 || temperature > 45){
     TemperatureOK = 0;
@@ -16,8 +16,8 @@ bool IsTemperatureOK(float temperature){
   return TemperatureOK;
 }
 
-bool IsSocOK(float soc){
-  bool SocOK;
+boolean IsSocOK(float soc){
+  boolean SocOK;
   char* SocHIGHORLOW;
   if(soc < 20 || soc > 80){
     SocOK = 0;
@@ -29,7 +29,7 @@ bool IsSocOK(float soc){
     printf("Soc is inrange");
  }
 
-bool IsChargRateOK(float chargeRate){
+boolean IsChargRateOK(float chargeRate){
   return(chargeRate < 0.8)
  }
 
