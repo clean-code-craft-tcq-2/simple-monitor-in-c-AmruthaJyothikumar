@@ -1,36 +1,32 @@
 #include <stdio.h>
 #include <assert.h>
 
-boolean IsTemperatureOK(float temperature){
-  boolean TemperatureOK;
-  char* TempertaureHIGHORLOW;
+int IsTemperatureOK(float temperature){
+  int TemperatureOK;
   if(temperature < 0 || temperature > 45){
     TemperatureOK = 0;
-    TempertaureHIGHORLOW = FindTempertaureHIGHORLOW();
-    print(TempertaureHIGHORLOW);
+    print(&FindTempertaureHIGHORLOW);
   }
   else{
      TemperatureOK = 1;
-      printf("Temperature is inrange");
+     printf("Temperature is inrange");
   }
   return TemperatureOK;
 }
 
-boolean IsSocOK(float soc){
-  boolean SocOK;
-  char* SocHIGHORLOW;
+int IsSocOK(float soc){
+  int SocOK;
   if(soc < 20 || soc > 80){
     SocOK = 0;
-    SocHIGHORLOW = FindSocHIGHORLOW();
-    print(FindSocHIGHORLOW);
+    print(&FindSocHIGHORLOW);
   }
   else{
     SocOK = 1;
     printf("Soc is inrange");
  }
 
-boolean IsChargRateOK(float chargeRate){
-  return(chargeRate < 0.8)
+int IsChargRateOK(float chargeRate){
+  return(chargeRate >= 0.8)
  }
 
 char* FindTempertaureHIGHORLOW(float temperature){
@@ -55,19 +51,16 @@ char* FindSocHIGHORLOW(float soc){
   return SocHIGHORLOW;
 }
 
-int batteryIsOk(IsTemperatureOK,IsSocOK,IsChargRateOK){
+int batteryIsOk((int (*fpIsTemperatureOK)(float),int (*fpIsSocOK)(float),int (*fpIsChargRateOK)(float)){
   int IsBatteryOK;
-  if(IsTemperatureOK & IsSocOK & IsChargRateOK){
-    IsBatteryOK = 1; 
-  }
-  else{
-    IsBatteryOK = 0;
-  }
-  return IsBatteryOK;
+  int TempStatus = fpIsTemperatureOK(float);
+  int SocStatus  =  fpIsSocOK(float);
+  int ChargeRateStatus =  fpIsChargRateOK(float);
+  return IsBatteryOK = (TempStatus && SocStatus && ChargeRateStatus);
 }
 
-void print(char *displaystring ){
-  printf(displaystring);
+void print(char *(fpdisplaystring)(float)){
+  printf(&fpdisplaystring);
 }
 
 int main() {
