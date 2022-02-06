@@ -51,7 +51,7 @@ char* FindSocHIGHORLOW(float soc){
 
 int batteryIsOk(float tempertaure, float soc, float chargerate, int (*fpIsTemperatureOK)(float),int (*fpIsSocOK)(float),int (*fpIsChargRateOK)(float)){
 
-  int TempStatus = fpIsTemperatureOK(temperature);
+  int TempStatus = fpIsTemperatureOK(tempertaure);
   int SocStatus  =  fpIsSocOK(soc);
   int ChargeRateStatus =  fpIsChargRateOK(chargerate);
   return IsBatteryOK = (TempStatus && SocStatus && ChargeRateStatus);
@@ -62,6 +62,6 @@ void print(char *(fpdisplaystring)(float)){
 }
 
 int main() {
-  assert(batteryIsOk(25, 70, 0.7));
-  assert(!batteryIsOk(50, 85, 0));
+  assert(batteryIsOk(25, 70, 0.7, &IsTemperatureOK(25),&IsSocOK(70),&IsChargRateOK(0.7)));
+  assert(!batteryIsOk(50, 85, 0,&IsTemperatureOK(50),&IsSocOK(85),&IsChargRateOK(0)));
 }
