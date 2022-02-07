@@ -22,6 +22,7 @@ int IsSocOK(float soc){
     SocOK = 1;
     printf("Soc is inrange");
  }
+}
 
 int IsChargRateOK(float chargeRate){
   return(chargeRate >= 0.8);
