@@ -63,14 +63,8 @@ void print(char *(fpdisplaystring)(float)){
 }
 
 int main() {
-  SECTION( "Battery is OK" ) {
-    printf("Temperature is 25, Soc is 70 and Charge Rate is 0.7 \n");
     assert(batteryIsOk(25,70,0.7, &IsTemperatureOK, &IsSocOK, &IsChargRateOK));
-  }
-  SECTION( "Battery is Not OK" ) {
-    printf("Temperature is 50, Soc is 85 and Charge Rate is 0 \n");
     assert(!batteryIsOk(50, 85, 0, &IsTemperatureOK, &IsSocOK, &IsChargRateOK));
-  }
 }
 
 
