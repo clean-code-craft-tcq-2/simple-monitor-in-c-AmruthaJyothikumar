@@ -42,11 +42,11 @@ char* FindTempertaureHIGHORLOW(float temperature){
 char* FindSocHIGHORLOW(float soc){
   char* SocHIGHORLOW;
   if(soc < 20){
-    SocHIGHORLOW = "LOWSoc";
-    }
+      SocHIGHORLOW = "LOWSoc";
+   }
   else if(soc > 80){
-   SocHIGHORLOW = "HIGHSoc";
-    }
+      SocHIGHORLOW = "HIGHSoc";
+   }
   return SocHIGHORLOW;
 }
 
@@ -65,3 +65,4 @@ int main() {
   assert(batteryIsOk(25, 70, 0.7, 1,1,1));
   assert(!batteryIsOk(50, 85, 0,0,0,0));
 }
+
