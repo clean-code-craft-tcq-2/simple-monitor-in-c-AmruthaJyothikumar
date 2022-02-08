@@ -2,6 +2,7 @@
 #include <assert.h>
 
 char* FindTempertaureHIGHORLOW(float temperature);
+char* FindSocHIGHORLOW(float soc);
 
 int IsTemperatureOK(float temperature){
   int TemperatureOK;
