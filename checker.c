@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <assert.h>
 
+char* FindTempertaureHIGHORLOW(float temperature);
+
 int IsTemperatureOK(float temperature){
   int TemperatureOK;
   if(temperature < 0 || temperature > 45){
