@@ -58,7 +58,7 @@ int batteryIsOk(float tempertaure, float soc, float chargerate, int (*fpIsTemper
 }
 
 void print(char *(fpdisplaystring)(float)){
-  printf(&fpdisplaystring);
+  printf("%s", &fpdisplaystring);
   printf("\n");
 }
 
