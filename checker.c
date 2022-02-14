@@ -53,7 +53,7 @@ int IsSocWarningLevelReached(float soc){
     if(CheckHighSocWarning){
       SocWarningLevel = HIGH;
       }
-    else if ((soc > 76) && (soc < 80)){
+    else if (CheckLowSocWarning){
       SocWarningLevel = LOW;
      }
   else{
@@ -62,7 +62,7 @@ int IsSocWarningLevelReached(float soc){
   }
 
 int CheckHighSocWarning(float soc){
-  if ((soc >= 76) && (soc =< 80)){
+  if ((soc >= 76) && (soc <= 80)){
     return 1;
     }
 }
