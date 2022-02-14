@@ -1,6 +1,6 @@
 
-#define LOWTEMP 0
-#define HIGHTEP 1
+#define LOW 0
+#define HIGH 1
 
 #define NOTOK 0
 #define OK 1
