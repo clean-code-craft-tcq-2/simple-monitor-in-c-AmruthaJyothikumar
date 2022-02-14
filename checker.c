@@ -18,9 +18,11 @@ int IsTemperatureWarningLevelReached(float temperature){
     if(temperature>= 0 && temperature <= 2){
       TemperatureWarningLevel = LOW;
       }
-  if (temperature >= 43 && temperature <= 45){
+  else if (temperature >= 43 && temperature <= 45){
     TemperatureWarningLevel = HIGH;
     }
+  else{
+  }    
   return TemperatureWarningLevel;
   }
 
@@ -39,10 +41,12 @@ int IsSocWarningLevelReached(float soc){
     if(soc >= 20 && soc <= 24){
       SocWarningLevel = LOW;
       }
-  if (soc >= 76 && soc <= 80){
-    SocWarningLevel = HIGH;
-    }
-  return SocWarningLevel;
+    else if (soc >= 76 && soc <= 80){
+      SocWarningLevel = HIGH;
+     }
+    else{
+      }
+    return SocWarningLevel;
   }
 
 int IsChargRateOK(float chargeRate){
