@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
-#include <checker.h>
+#include "checker.h"
 
 int IsTemperatureOK(float temperature){
   int TemperatureOK;
