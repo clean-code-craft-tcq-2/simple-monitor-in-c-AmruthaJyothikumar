@@ -1,3 +1,5 @@
+**Extension 1: Early Warning** is selected for assignment Extend Refactor.
+
 # Programming Paradigms
 
 Electric Vehicles have BMS - Battery Management Systems
