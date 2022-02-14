@@ -2,6 +2,12 @@
 #include <assert.h>
 #include "checker.h"
 
+int CheckHighTemperatureWarning(float temperature);
+int CheckLowTemperatureWarning(float temperature);
+int CheckHighSocWarning(float soc);
+int CheckLowSocWarning(float soc);
+ 
+  
 int IsTemperatureOK(float temperature){
   int TemperatureOK;
   if(temperature < 0 || temperature > 45){
@@ -68,7 +74,7 @@ int CheckHighSocWarning(float soc){
 }
 
 int CheckLowSocWarning(float soc){
-  if ((soc >= 20) && (soc =< 24)){
+  if ((soc >= 20) && (soc <= 24)){
     return 1;
     }
 }
