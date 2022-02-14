@@ -1,58 +1,62 @@
 #include <stdio.h>
 #include <assert.h>
-
-char* FindTempertaureHIGHORLOW(float temperature);
-char* FindSocHIGHORLOW(float soc);
+#include <checker.h>
 
 int IsTemperatureOK(float temperature){
   int TemperatureOK;
   if(temperature < 0 || temperature > 45){
-    TemperatureOK = 0;
-    print(&FindTempertaureHIGHORLOW);
-  }
+    TemperatureOK = NOTOK;
+    }
   else{
-     TemperatureOK = 1;
-      printf("Temperature is in range");
-      }
+     TemperatureOK = OK;
+      }   
   return TemperatureOK;
 }
+
+int IsTemperatureWarningLevelReached(float temperature){
+    int TemperatureWarningLevel;
+    if(temperature>= 0 && temperature <= 2){
+      TemperatureWarningLevel = LOW;
+      printf("Warning: Approaching Low Temperature");
+      }
+  if (temperature >= 43 && temperature <= 45){
+    TemperatureWarningLevel = HIGH;
+    printf("Warning: Approaching High Temperature");
+    }
+  return TemperatureWarningLevel;
+  }
 
 int IsSocOK(float soc){
   int SocOK;
   if(soc < 20 || soc > 80){
-    SocOK = 0;
+    SocOK = NOTOK;
   }
   else{
-    SocOK = 1;
+    SocOK = OK;
  }
 }
+
+int IsSocWarningLevelReached(float soc){
+    int SocWarningLevel;
+    if(soc >= 20 && soc <= 24){
+      SocWarningLevel = LOW;
+      printf("Warning: Approaching Low Temperature");
+      }
+  if (soc >= 76 && soc <= 80){
+    SocWarningLevel = HIGH;
+    printf("Warning: Approaching High Temperature");
+    }
+  return SocWarningLevel;
+  }
 
 int IsChargRateOK(float chargeRate){
   return(chargeRate < 0.8);
  }
-
-char* FindTempertaureHIGHORLOW(float temperature){
-  char* TempertaureHIGHORLOW;
-  if(temperature < 0){
-    TempertaureHIGHORLOW = "LOWTemperature";
-    }
-  else if(temperature > 45){
-   TempertaureHIGHORLOW = "HIGHTemperature";
-    }
-  return TempertaureHIGHORLOW;
+     
+void print(char *warningstatementDisplay){
+  printf(" %s\n", warningstatementDisplay);
 }
-
-char* FindSocHIGHORLOW(float soc){
-  char* SocHIGHORLOW;
-  if(soc < 20){
-      SocHIGHORLOW = "LOWSoc";
-   }
-  else if(soc > 80){
-      SocHIGHORLOW = "HIGHSoc";
-   }
-  return SocHIGHORLOW;
-}
-
+   
 int batteryIsOk(float tempertaure, float soc, float chargerate, int (*fpIsTemperatureOK)(float),int (*fpIsSocOK)(float),int (*fpIsChargRateOK)(float)){
   int TempStatus = fpIsTemperatureOK(tempertaure);
   int SocStatus  =  fpIsSocOK(soc);
@@ -60,14 +64,15 @@ int batteryIsOk(float tempertaure, float soc, float chargerate, int (*fpIsTemper
   return (TempStatus && SocStatus && ChargeRateStatus);
 }
 
-void print(char *(fpdisplaystring)(float)){
-  printf("%s", &fpdisplaystring);
-  printf("\n");
-}
 
 int main() {
     assert(batteryIsOk(25,70,0.7, &IsTemperatureOK, &IsSocOK, &IsChargRateOK));
     assert(!batteryIsOk(50, 85, 0, &IsTemperatureOK, &IsSocOK, &IsChargRateOK));
+    assert(IsTemperatureWarningLevelReached(43) == HIGH);
+    assert(IsTemperatureWarningLevelReached(1) == LOW);
+  
+    assert(IsSocWarningLevelReached(79) == HIGH);
+    assert(IsSocWarningLevelReached(21) == LOW);
 }
 
 
