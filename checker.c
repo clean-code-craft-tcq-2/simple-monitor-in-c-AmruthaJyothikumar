@@ -27,13 +27,13 @@ int IsTemperatureWarningLevelReached(float temperature){
   }
 
 int CheckHighTemperatureWarning(float temperature){
-  if ((temperature >= 43) && (temperature =< 45)){
+  if ((temperature >= 43) && (temperature <= 45)){
     return 1;
     }
 }
 
 int CheckLowTemperatureWarning(float temperature){
-  if ((temperature >= 0) && (temperature =< 2)){
+  if ((temperature >= 0) && (temperature <= 2)){
     return 1;
     }
 }
