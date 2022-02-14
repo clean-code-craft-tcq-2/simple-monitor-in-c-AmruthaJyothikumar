@@ -17,11 +17,9 @@ int IsTemperatureWarningLevelReached(float temperature){
     int TemperatureWarningLevel;
     if(temperature>= 0 && temperature <= 2){
       TemperatureWarningLevel = LOW;
-      printf("Warning: Approaching Low Temperature");
       }
   if (temperature >= 43 && temperature <= 45){
     TemperatureWarningLevel = HIGH;
-    printf("Warning: Approaching High Temperature");
     }
   return TemperatureWarningLevel;
   }
@@ -40,11 +38,9 @@ int IsSocWarningLevelReached(float soc){
     int SocWarningLevel;
     if(soc >= 20 && soc <= 24){
       SocWarningLevel = LOW;
-      printf("Warning: Approaching Low Temperature");
       }
   if (soc >= 76 && soc <= 80){
     SocWarningLevel = HIGH;
-    printf("Warning: Approaching High Temperature");
     }
   return SocWarningLevel;
   }
