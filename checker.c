@@ -22,6 +22,7 @@ int IsTemperatureWarningLevelReached(float temperature){
     TemperatureWarningLevel = HIGH;
     }
   else{
+    TemperatureWarningLevel  = 2;
   }    
   return TemperatureWarningLevel;
   }
@@ -45,6 +46,7 @@ int IsSocWarningLevelReached(float soc){
       SocWarningLevel = HIGH;
      }
     else{
+      SocWarningLevel  = 2;
       }
     return SocWarningLevel;
   }
