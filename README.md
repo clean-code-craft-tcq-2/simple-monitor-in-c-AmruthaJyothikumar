@@ -1,4 +1,4 @@
-**Extension 1: Early Warning** 
+**Extension 1: Early Warning** is selected for assignment Extend Refactor.
 
 # Programming Paradigms
 
